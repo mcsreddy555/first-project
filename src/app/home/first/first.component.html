@@ -1,0 +1,28 @@
+<div class="form-group" style="text-align: center;">
+    <input type="text" [(ngModel)]="searchText"  placeholder="Search for Country">
+  </div>
+<table class="table table-stripped" style="border:1px solid #a5a5a5">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Capital</th>
+        <th>Population</th>
+        <th>Region</th>
+        <th>Flag</th>
+      </tr>
+    </thead>
+    
+    <tbody >
+      <tr *ngFor="let x of result | filter:searchText; let i=index" sty>
+        <td >{{i+1}}</td>
+        <td>{{x.name | uppercase}}</td>
+        <td>{{x.capital}}</td>
+        <td>{{x.population}}</td>
+        <td>{{x.region}}</td>
+        
+        <td><img width="100px" height="50px" src="{{x.flag }}"></td>
+    </tr>
+    </tbody>
+    
+  </table>
