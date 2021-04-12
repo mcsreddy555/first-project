@@ -12,8 +12,17 @@
 
   
 <div class="card" style="padding: 20px; align-items: center; border:  1px solid greenyellow; margin: 50px; ">
-    <button class="btn btn-info m-2" (click)="add()">First</button>
-        
-        
+  <div style="display: inline;">
+   
+    <!-- <button class="btn btn-info m-2" (click)="add2()">Second</button> -->
+    <app-second *ngIf="isVisible" [myNumber]="counter"></app-second>
+    <button class="btn btn-success mr-2" style="width: 80px;" (click)="increment()">+1</button>
+    <button class="btn btn-warning mr-2" style="width: 80px;" (click)="decrement()">-1</button>
+    <button class="btn btn-danger" style="width: 80px;" (click)="switchVisible()">Destroy</button>
+    <div style="text-align: center;">
+       <button class="btn btn-info m-2" (click)="add1()">First</button>
+    </div>
+  </div>
+  <!-- <hr style="border: 1px solid blue;"> -->
           <router-outlet></router-outlet>
   </div>

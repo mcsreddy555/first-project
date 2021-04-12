@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   name: any;
   response: any;
 
+  public myNumber:number=25;
+  isVisible:boolean=true;
 
   public getCountries(): Observable<any> {
     return this.http.get<any>("https://restcountries.eu/rest/v2/all")
@@ -32,9 +34,31 @@ export class HomeComponent implements OnInit {
 
   
 
-  add() {
+  add1() {
     this.router.navigate(['../home/first'])
-
   }
 
+  // add2() {
+  //   this.router.navigate(['../home/second'])
+  // }
+
+  get counter(){
+    return this.myNumber;
+  }
+  set counter(value){
+    this.myNumber=value;
+  }
+
+  increment(){
+    this.counter++;
+  }
+  decrement(){
+    this.counter--;
+  }
+
+  switchVisible(){
+    this.isVisible=!this.isVisible
+  }
 }
+
+

@@ -8,6 +8,7 @@ import { FilterPipe } from './filter.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
+import { ThirdComponent } from './third/third.component';
 // import { AgmCoreModule } from '@agm/core';
 
 
@@ -16,7 +17,8 @@ import { SecondComponent } from './second/second.component';
     HomeComponent,
     FilterPipe,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    ThirdComponent
   ],
   imports: [
     CommonModule,
