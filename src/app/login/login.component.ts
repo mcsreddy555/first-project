@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   loginForm:any;
   submitted:any;
+  hide = true;
   
   constructor(private formbuilder:FormBuilder) {
     this.loginForm=FormGroup

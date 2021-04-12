@@ -2,6 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -9,6 +15,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  tiles: Tile[] = [
+    {text: 'One', cols: 4, rows: 3, color: 'lightblue'},
+    
+    {text: 'Two', cols: 2, rows: 2, color: 'lightpink'},
+    {text: 'Three', cols: 2, rows: 2, color: '#DDBDF1'},
+  ];
 
   constructor(private http: HttpClient, private router: Router) { }
   public result: any;
@@ -38,9 +51,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['../home/first'])
   }
 
-  // add2() {
-  //   this.router.navigate(['../home/second'])
-  // }
+  add3() {
+    this.router.navigate(['../home/third'])
+  }
 
   get counter(){
     return this.myNumber;

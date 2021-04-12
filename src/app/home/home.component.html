@@ -1,5 +1,5 @@
 
-<header>
+<!-- <header>
     <nav class="navbar bg-info"> 
       <span style="font-size: 30px; color: white;">First App</span>
       <ul class="nav justify-content-end">
@@ -8,21 +8,136 @@
         </li>
       </ul>
     </nav>
-  </header>
+  </header> -->
+  <!-- <mat-toolbar color="primary">
+    
+    <span>Home</span>
+    <span class="spacer"></span>
+
+    <button mat-icon-button>
+      <mat-icon><span class="material-icons-outlined">
+        notifications_none
+        </span></mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+
+
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
 
   
-<div class="card" style="padding: 20px; align-items: center; border:  1px solid greenyellow; margin: 50px; ">
-  <div style="display: inline;">
-   
-    <!-- <button class="btn btn-info m-2" (click)="add2()">Second</button> -->
-    <app-second *ngIf="isVisible" [myNumber]="counter"></app-second>
-    <button class="btn btn-success mr-2" style="width: 80px;" (click)="increment()">+1</button>
-    <button class="btn btn-warning mr-2" style="width: 80px;" (click)="decrement()">-1</button>
-    <button class="btn btn-danger" style="width: 80px;" (click)="switchVisible()">Destroy</button>
-    <div style="text-align: center;">
-       <button class="btn btn-info m-2" (click)="add1()">First</button>
-    </div>
-  </div>
-  <!-- <hr style="border: 1px solid blue;"> -->
-          <router-outlet></router-outlet>
-  </div>
+
+
+  <mat-toolbar color="primary">
+  
+    <mat-toolbar-row>
+       <button mat-icon-button>
+         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      
+      <h1>MBR Info</h1>
+      
+      <span class="menu-spacer"></span>
+      <div>
+        <!-- <a mat-icon-button >Angular</a>
+        <a mat-button mat-icon-button>NodeJS</a>
+        <a mat-button mat-icon-button>ReactJS</a>
+        <a mat-button mat-icon-button>VueJS</a>
+        <a mat-button mat-icon-button>MEAN Stack</a>
+        <a mat-button mat-icon-button>MERN Stack</a> -->
+        <button mat-stroked-button class="m-2">Basic</button>
+    <button mat-stroked-button class="m-2">Primary</button>
+    <button mat-stroked-button class="m-2">Accent</button>
+    <button mat-stroked-button class="m-2" >Warn</button>
+    <button mat-stroked-button class="m-2" disabled>Disabled</button>
+    <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+    </mat-toolbar-row>
+    
+    
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+      <mat-sidenav #sidenav>
+          <mat-nav-list style="width: 300px;">
+              <a mat-list-item >About</a>
+              <a mat-list-item >Contact</a>
+              <a mat-list-item >Portfolio</a>
+              <a mat-list-item >Queries</a>
+              <a mat-list-item >Feedback</a>
+              <a mat-list-item routerLink="/login" >Logout</a>
+
+              
+          </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+          <div style=" margin-left: 100px;">
+
+            <div class="card" style="padding: 20px; align-items: center; border:  1px solid greenyellow; margin: 50px; text-align: center; ">
+              <div style="display: inline;">
+               <div class="card mb-2" style=" border: 1px solid red; width: 400px; height: 150px; " >
+                <div class="card-title mb-1">
+                  <h3>Data From Second Component</h3>
+                </div>
+                <div style="display: inline;">
+                  <app-second *ngIf="isVisible" [myNumber]="counter"></app-second>
+                  <button class="btn btn-success mr-2" style="width: 80px;" (click)="increment()">+1</button>
+                  <button class="btn btn-warning mr-2" style="width: 80px;" (click)="decrement()">-1</button>
+                  <button class="btn btn-danger" style="width: 80px;" (click)="switchVisible()">Destroy</button>
+                </div>
+                
+               </div>
+                <!-- <button class="btn btn-info m-2" (click)="add2()">Second</button> -->
+                <mat-divider></mat-divider>
+                <div style="text-align: center;">
+                   <button class="btn btn-info m-2" (click)="add1()">First Component</button>
+                   <button class="btn btn-info m-2" (click)="add3()">Third Component</button>
+                </div>
+              </div>
+              <!-- <hr style="border: 1px solid blue;"> -->
+                      <router-outlet></router-outlet>
+              </div>
+              <mat-grid-list cols="4" rowHeight="100px">
+                <mat-grid-tile
+                    *ngFor="let tile of tiles"
+                    [colspan]="tile.cols"
+                    [rowspan]="tile.rows"
+                    [style.background]="tile.color">
+                  {{tile.text}}
+                </mat-grid-tile>
+              </mat-grid-list>
+
+              <!-- <mat-card>
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-content>
+                    <p>
+                      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                      bred for hunting.
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions>
+                </mat-card>
+              </mat-card> -->
+            <!-- <router-outlet></router-outlet>     -->
+          </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  
